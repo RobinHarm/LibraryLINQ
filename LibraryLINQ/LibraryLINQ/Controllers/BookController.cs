@@ -92,7 +92,7 @@ namespace LibraryLINQ.Controllers
         [HttpGet]
         public async Task<IActionResult> Update(Guid id)
         {
-            var book = await _context.Books.FindAsync(id);
+            var book = await _libraryContext.Books.FindAsync(id);
 
             if(book == null)
             {
