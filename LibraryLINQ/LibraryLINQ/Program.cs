@@ -13,7 +13,9 @@ namespace LibraryLINQ
             var builder = WebApplication.CreateBuilder(args);
             builder.Services.AddControllersWithViews();
 
-
+            builder.Services.AddScoped<IBookServices, BookServices>();
+            builder.Services.AddScoped<ILoanServices, LoanServices>();
+            builder.Services.AddScoped<IReaderServices, ReaderServices>();
 
             builder.Services.AddDbContext<LibraryContext>(options =>
                            options.UseSqlServer(
