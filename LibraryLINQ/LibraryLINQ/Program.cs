@@ -17,6 +17,12 @@ namespace LibraryLINQ
             builder.Services.AddScoped<ILoanServices, LoanServices>();
             builder.Services.AddScoped<IReaderServices, ReaderServices>();
 
+            // Andmebaasiühenduse seadistamine.
+            // AddDbContext registreerib LibraryContexti rakenduse teenuste hulka.
+            // UseSqlServer määrab, et kasutatakse Microsoft SQL Serveri andmebaasi.
+            // GetConnectionString loeb ühenduse seaded appsettings.json failist,
+            // kasutades ühenduse nime "LibraryContext".
+
             builder.Services.AddDbContext<LibraryContext>(options =>
                            options.UseSqlServer(
                                builder.Configuration.GetConnectionString("LibraryContext")));
